@@ -18,5 +18,5 @@ object Happy extends App {
 }
 
 class Engineer(val name: String, val isHappy: Boolean) {
-  override def toString = name
+  override def toString = name capitalize
 }
