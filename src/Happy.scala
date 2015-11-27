@@ -5,15 +5,13 @@ object Happy extends App {
   def format(v: Vector[_]) = v.mkString(", ")
 
   def testEngineerExuberance(engineers: Vector[Engineer]): Unit = {
-    // _1 contains happy, _2 contains unhappy
-    val splitEngineers = engineers.partition(_.isHappy)
-    if (splitEngineers._1.size > splitEngineers._2.size) {
-      println(s"Hooray, these people are happy: ${format(splitEngineers._1)}!")
+    val (happy, unhappy) = engineers partition (_.isHappy)
+    if (happy.size > unhappy.size) {
+      println(s"Hooray, these people are happy: ${format(happy)}!")
     } else {
-      println(s"Bummer, these people are upset: ${format(splitEngineers._2)}")
+      println(s"Bummer, these people are upset: ${format(unhappy)} :(")
     }
   }
-
   testEngineerExuberance(Vector(new Engineer("Debbie Downer", false), new Engineer("Ulysses Upper", true)))
 }
 
